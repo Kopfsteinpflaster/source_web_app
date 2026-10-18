@@ -215,7 +215,7 @@ export const impressum = () =>
         um den technischen Betrieb sicheren Standards entsprechend zu gewährleisten.</p>
       <p>Damit die App offline funktioniert, speichert dein Browser ihre Dateien auf deinem Gerät zwischen. Außerdem merkt
         er sich für die laufende Sitzung, dass der Startbildschirm schon einmal geladen wurde, und speichert dauerhaft
-        den Stand deines Knall-Zählers sowie die Passwörter und Funde, die du im Terminal freigeschaltet hast. Diese Daten bleiben auf deinem Gerät und werden nicht an uns übertragen. Du kannst sie jederzeit über die Browser-Einstellungen löschen.</p>
+        den Stand deines Knall-Zählers, die Passwörter und Funde, die du im Terminal freigeschaltet hast, und deine Notizen. Diese Daten bleiben auf deinem Gerät und werden nicht an uns übertragen. Du kannst sie jederzeit über die Browser-Einstellungen löschen.</p>
 
       <h2>Schriftart</h2>
       <p>Die App verwendet die Schriftart IBM Plex Mono, lizenziert unter der SIL Open Font License 1.1.

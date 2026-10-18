@@ -3,7 +3,7 @@
 // Inhalte unter data/: zuerst aus dem Netz, damit neue Meldungen sofort ankommen.
 // Bei Änderungen an der App-Hülle VERSION erhöhen.
 
-const VERSION = "source-v14";
+const VERSION = "source-v15";
 
 const HUELLE = [
   "./",

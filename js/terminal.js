@@ -1,6 +1,6 @@
 // SOURCE-Net-Terminal: Dateibaum aus data/terminal.json, Eingabezeile, antippbare Ausgabe und Befehls-Chips.
 // Gesperrte Dateien öffnet `decrypt`, gesperrte Feeds öffnet `connect`, Funde kommen per `scan` (QR-Code).
-// Passwörter und Funde merkt sich das Gerät.
+// Eigene Notizen schreiben `note` und `edit`. Passwörter, Funde und Notizen merkt sich das Gerät.
 
 import { maskieren, unterseite, ausgabe, lesen, schreiben } from "./hilfen.js";
 import { verfuegbar, schluessel, entschluesseln, kennung, codeNormalisieren } from "./krypto.js";
@@ -31,6 +31,7 @@ function sammeln(knoten) {
 let ort = []; // aktueller Ordner als Liste von Namen, [] = ~
 const verlauf = [];
 let warten = null; // offene Passwortabfrage: { art: "decrypt" | "connect", ziel }
+let entwurf = null; // Text im offenen Editor, null = Editor zu
 
 const zufall = (liste) => liste[Math.floor(Math.random() * liste.length)];
 
@@ -74,6 +75,13 @@ const SCAN_FALSCH = [
   "das netz kennt diese signatur nicht. noch nicht.",
 ];
 
+const NOTIZ_SPRUECHE = [
+  "für später. falls es ein später gibt.",
+  "aufgeschrieben. vergessen kannst du es trotzdem.",
+  "das netz liest mit. nur damit du es weißt.",
+  "papier wäre sicherer. aber papier brennt.",
+];
+
 const WHOAMI = [
   "gute frage.",
   "ein niemand mit zugang. vorerst.",
@@ -89,6 +97,7 @@ const pfadText = (teile) => "~" + teile.map((t) => "/" + t).join("");
 const sichtbar = (k) => !k.zeit || new Date(k.zeit) <= new Date();
 
 function inhaltVon(knoten) {
+  if (knoten === baum.inhalt.notes) return { ...knoten.inhalt, "notizen.txt": NOTIZEN };
   if (knoten.virtuell === "funde") return fundeInhalt();
   if (knoten.virtuell === "sammlungen") return sammlungenInhalt();
   if (knoten.sammlung) return setInhalt(knoten.sammlung);
@@ -123,6 +132,17 @@ function setInhalt(set) {
   return inhalt;
 }
 
+// ---------- Eigene Notizen (nur auf diesem Gerät) ----------
+
+const NOTIZEN = { typ: "datei", virtuell: "notizen" };
+const NOTIZEN_PFAD = "~/notes/notizen.txt";
+const notizen = () => lesen("terminal-notizen", "");
+
+const zweistellig = (n) => String(n).padStart(2, "0");
+function zeitstempel(d = new Date()) {
+  return `${zweistellig(d.getDate())}.${zweistellig(d.getMonth() + 1)}. ${zweistellig(d.getHours())}:${zweistellig(d.getMinutes())}`;
+}
+
 const fundPfad = (f) => (f.sammlung ? `~/notes/sammlungen/${f.sammlung}/${f.name}` : `~/notes/funde/${f.name}`);
 
 // Löst einen Pfad relativ zum aktuellen Ort auf: ~, /, .., . und relative Namen
@@ -155,6 +175,7 @@ const iterationen = () => baum.kdf.iterationen;
 
 // Datei lesen; null, wenn sie verschlüsselt ist und das Gerät das Passwort nicht kennt
 async function dateiText(knoten, pfad) {
+  if (knoten.virtuell === "notizen") return notizen();
   if (!knoten.verschluesselt) return knoten.text;
   const offen = lesen("terminal-dateien", {});
   if (!offen[pfad] || !verfuegbar()) return null;
@@ -208,6 +229,8 @@ const befehle = {
       ["decrypt <datei>", "entschlüsselt eine Datei. Passwörter wachsen nicht auf Bäumen."],
       ["connect <gesellschaft>", "verbindet dich mit einer Gesellschaft. Die wissen dann, wer du bist."],
       ["scan <code>", "liest einen Fund ein. Oder halt einfach die Kamera auf den QR-Code."],
+      ["note <text>", "notiert etwas. Damit du später weißt, was du vergessen hast."],
+      ["edit notizen.txt", "öffnet deine Notizen zum Bearbeiten. Nur die gehören dir."],
       ["pwd", "zeigt, wo du bist. Nicht, wer du bist."],
       ["clear", "wischt den Bildschirm. Nicht dein Gedächtnis."],
       ["whoami", "gute Frage."],
@@ -257,6 +280,9 @@ const befehle = {
     const gesperrt = sperre(teile);
     if (gesperrt) return gesperrtMeldung("cat", ziel, gesperrt);
     const text = await dateiText(knoten, pfadText(teile));
+    if (knoten.virtuell === "notizen" && !text) {
+      return kommentar("noch leer. versuch: note <text> oder edit notizen.txt");
+    }
     if (text === null) {
       return [fehler(`cat: ${ziel}: verschlüsselt. nur datensalat.`), kommentar(`versuch: decrypt ${ziel}`)].join("\n");
     }
@@ -341,6 +367,25 @@ const befehle = {
       }
     }
     return aus.join("\n");
+  },
+
+  note(argumente) {
+    if (!argumente.length) {
+      return [kommentar("was denn? versuch: note <text>"), link(`cat ${NOTIZEN_PFAD}`, NOTIZEN_PFAD, "datei")].join("\n");
+    }
+    const alt = notizen();
+    schreiben("terminal-notizen", `${alt ? alt + "\n" : ""}${zeitstempel()}  ${argumente.join(" ")}`);
+    return [`${zeile("notiert in", "ok")} ${link(`cat ${NOTIZEN_PFAD}`, NOTIZEN_PFAD, "datei")}`, kommentar(zufall(NOTIZ_SPRUECHE))].join("\n");
+  },
+
+  edit([ziel = NOTIZEN_PFAD]) {
+    const { knoten } = aufloesen(ziel);
+    if (!knoten) return fehler(`edit: ${ziel}: gibt es nicht. vielleicht nie gegeben.`);
+    if (knoten.virtuell !== "notizen") {
+      return [fehler(`edit: ${ziel}: schreibgeschützt.`), kommentar("nur deine notizen gehören dir. der rest gehört dem netz.")].join("\n");
+    }
+    entwurf = notizen();
+    return kommentar("editor offen. speichern nicht vergessen. das netz vergisst nichts, du schon.");
   },
 
   pwd: () => zeile(pfadText(ort)),
@@ -438,6 +483,10 @@ export async function terminal() {
             spellcheck="false" enterkeyhint="send">
         </label>
       </form>
+      <div class="term-editor" hidden>
+        <div class="term-prompt">${NOTIZEN_PFAD}</div>
+        <textarea aria-label="Notizen bearbeiten" autocapitalize="sentences" spellcheck="false"></textarea>
+      </div>
       <div class="term-chips"></div>
     </div>`
   );
@@ -450,14 +499,25 @@ terminal.binden = (wurzel, { scan } = {}) => {
   const aus = wurzel.querySelector(".term-ausgabe");
   const prompt = wurzel.querySelector(".term-prompt");
   const chips = wurzel.querySelector(".term-chips");
+  const editor = wurzel.querySelector(".term-editor");
+  const blatt = editor.querySelector("textarea");
   let position = verlauf.length;
   let laeuft = false;
 
   function auffrischen() {
+    // Offener Editor ersetzt die Eingabezeile, ein Entwurf übersteht auch den Wechsel zu einem anderen Tab
+    const schreibt = entwurf !== null;
+    editor.hidden = !schreibt;
+    form.hidden = schreibt;
+    if (schreibt && blatt.value !== entwurf) blatt.value = entwurf;
     // Bei einer Passwortabfrage wird nicht mitgelesen
     prompt.textContent = warten ? (warten.art === "connect" ? "passphrase:" : "passwort:") : `${pfadText(ort)}$`;
     feld.type = warten ? "password" : "text";
-    const liste = warten ? ["abbrechen"] : ["ls", ...(ort.length ? ["cd .."] : []), "help", "clear"];
+    const liste = schreibt
+      ? ["speichern", "verwerfen"]
+      : warten
+        ? ["abbrechen"]
+        : ["ls", ...(ort.length ? ["cd .."] : []), ...(ort.join("/") === "notes" ? ["edit notizen.txt"] : []), "help", "clear"];
     chips.innerHTML = liste.map((b) => link(b, `[ ${b} ]`, "chip")).join("");
   }
 
@@ -476,14 +536,28 @@ terminal.binden = (wurzel, { scan } = {}) => {
       anhaengen(`${fehler("systemfehler. das netz stottert.")}\n${kommentar(e?.message ?? String(e))}`);
     }
     auffrischen();
-    form.scrollIntoView({ block: "end" });
     laeuft = false;
+    if (entwurf !== null) {
+      editor.scrollIntoView({ block: "start" });
+      return blatt.focus();
+    }
+    form.scrollIntoView({ block: "end" });
     // Nach dem Antippen keine Tastatur aufklappen, außer es wird ein Passwort gebraucht
     if (getippt || warten) feld.focus();
   }
 
   async function verarbeiten(eingabe) {
-    if (warten) {
+    if (entwurf !== null) {
+      const text = blatt.value.replace(/\s+$/, "");
+      entwurf = null;
+      if (eingabe === "speichern") {
+        schreiben("terminal-notizen", text);
+        const anzahl = text ? text.split("\n").length : 0;
+        anhaengen(`${zeile(`gespeichert: ${anzahl} ${anzahl === 1 ? "zeile" : "zeilen"} in`, "ok")} ${link(`cat ${NOTIZEN_PFAD}`, NOTIZEN_PFAD, "datei")}`);
+      } else {
+        anhaengen(kommentar("verworfen. was nicht gespeichert ist, ist nie passiert."));
+      }
+    } else if (warten) {
       const { art, ziel } = warten;
       warten = null;
       if (eingabe === "abbrechen" || !eingabe.trim()) {
@@ -514,12 +588,26 @@ terminal.binden = (wurzel, { scan } = {}) => {
     starten(wert, true);
   });
 
-  wurzel.addEventListener("click", (e) => {
+  // Am .term hängen, nicht an der Wurzel: Die bleibt bestehen, sonst stapeln sich die Handler bei jedem Besuch
+  wurzel.querySelector(".term").addEventListener("click", (e) => {
     const ziel = e.target.closest(".term-link");
     if (!ziel) return;
+    // Im Editor zählen nur speichern und verwerfen, damit kein Entwurf verloren geht
+    if (entwurf !== null && !["speichern", "verwerfen"].includes(ziel.dataset.befehl)) return;
     // Ein Antippen während einer Passwortabfrage bricht sie ab
     if (warten && ziel.dataset.befehl !== "abbrechen") starten("abbrechen", false).then(() => starten(ziel.dataset.befehl, false));
     else starten(ziel.dataset.befehl, false);
+  });
+
+  blatt.addEventListener("input", () => {
+    entwurf = blatt.value;
+  });
+
+  blatt.addEventListener("keydown", (e) => {
+    if ((e.ctrlKey || e.metaKey) && (e.key === "s" || e.key === "Enter")) {
+      e.preventDefault();
+      starten("speichern", false);
+    }
   });
 
   feld.addEventListener("keydown", (e) => {
