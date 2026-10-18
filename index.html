@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>SOURCE</title>
+  <meta name="description" content="SOURCE – die App für Kopfsteinpflaster, ein Urban-Horror-Larp in Berlin.">
+  <meta name="theme-color" content="#15181d">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="SOURCE">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <link rel="preload" href="fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <div class="handy">
+    <div class="status" aria-hidden="true">
+      <span class="an">tor</span>
+      <span>fx-7 · ~/source</span>
+      <span id="uhr">--:--</span>
+    </div>
+    <main id="ansicht" class="ansicht" tabindex="-1"></main>
+
+    <button class="splitter" type="button" aria-label="OT-Menü öffnen" aria-controls="ot-menue" aria-expanded="false">
+      <svg viewBox="0 0 132 132" aria-hidden="true">
+        <g class="riss" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="116,116 106,98 100,106" fill="rgba(221,213,196,0.05)" stroke="none"/>
+          <polygon points="116,116 94,112 100,106" fill="rgba(221,213,196,0.08)" stroke="none"/>
+          <polygon points="116,116 112,94 106,98" fill="rgba(221,213,196,0.03)" stroke="none"/>
+          <g stroke="rgba(221,213,196,0.55)" stroke-width="1">
+            <polyline points="116,116 100,106 88,102 76,96 66,94"/>
+            <polyline points="116,116 106,98 103,84 96,70 95,64"/>
+            <polyline points="116,116 94,112 78,116 62,113 46,120"/>
+            <polyline points="116,116 112,94 117,78 115,62 122,42"/>
+            <polyline points="116,116 128,104 132,101"/>
+            <polyline points="116,116 104,128 101,132"/>
+            <polyline points="88,102 84,90"/>
+            <polyline points="103,84 92,80"/>
+            <polyline points="78,116 72,104"/>
+            <polyline points="117,78 126,70"/>
+            <polyline points="104,112 107,105 112,104"/>
+            <polyline points="96,109 100,98 108,96 110,90"/>
+          </g>
+          <g stroke="rgba(255,255,255,0.18)" stroke-width="0.6">
+            <polyline points="115,117 99,107 87,103 75,97"/>
+            <polyline points="117,115 113,93 118,77"/>
+          </g>
+          <polygon points="113,113 119,112 120,119 114,120" fill="rgba(221,213,196,0.35)" stroke="none"/>
+        </g>
+      </svg>
+    </button>
+
+    <div id="ot-menue" class="ot-menue" hidden>
+      <div class="ot-blatt" role="dialog" aria-modal="true" aria-labelledby="ot-titel">
+        <header>
+          <h2 id="ot-titel">Außerhalb des Spiels</h2>
+          <button type="button" data-ot-schliessen>Schließen</button>
+        </header>
+        <ul class="ot-liste">
+          <li><a href="#/ot/muenzwurf">Münzwurf <span>Eskalation</span></a></li>
+          <li><a href="#/ot/knall">Knall-Zähler <span>0–5</span></a></li>
+          <li><a href="#/ot/regeln">Spielregeln</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

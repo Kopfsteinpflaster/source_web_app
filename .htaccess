@@ -1,0 +1,6 @@
+# Nur für das lokale Testen mit XAMPP; GitHub Pages ignoriert diese Datei.
+# Browser sollen bei jedem Aufruf nachfragen, ob sich eine Datei geändert hat,
+# statt alte Versionen aus dem Cache zu nehmen.
+<IfModule mod_headers.c>
+  Header set Cache-Control "no-cache"
+</IfModule>

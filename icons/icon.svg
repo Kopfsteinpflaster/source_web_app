@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <radialGradient id="licht" cx="50%" cy="22%" r="75%">
+      <stop offset="0" stop-color="#e09a3e" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#e09a3e" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="512" height="512" fill="#15181d"/>
+  <rect width="512" height="512" fill="url(#licht)"/>
+  <circle cx="256" cy="256" r="150" fill="none" stroke="#ddd5c4" stroke-width="10" stroke-dasharray="820 122" transform="rotate(-62 256 256)"/>
+  <path d="M146 256 Q256 160 366 256 Q256 352 146 256 Z" fill="none" stroke="#e09a3e" stroke-width="14" stroke-linejoin="round"/>
+  <ellipse cx="256" cy="256" rx="15" ry="52" fill="#e09a3e"/>
+</svg>

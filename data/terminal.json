@@ -1,0 +1,194 @@
+{
+  "kdf": {
+    "iterationen": 150000
+  },
+  "typ": "ordner",
+  "inhalt": {
+    ".jwd": {
+      "typ": "ordner",
+      "inhalt": {
+        "signal.log": {
+          "typ": "datei",
+          "text": "[fornax-cluster] träger erfasst\n7 3 1 . 7 3 1 . 7 3 1\n[fornax-cluster] träger verloren\n\nwer das liest, wird gelesen."
+        }
+      }
+    },
+    "data": {
+      "typ": "ordner",
+      "inhalt": {
+        "artefakte": {
+          "typ": "ordner",
+          "inhalt": {
+            "fahrschein-linie-null.txt": {
+              "typ": "datei",
+              "text": "Fahrschein für die Linie 0.\n\nEin BVG-Einzelfahrschein, Tarifbereich ABC, entwertet am 31. Februar. Die Linie 0 fährt ab Bahnhof Zoo, Gleis 0, nachts um 3:33. Sie hält an Stationen, die nach Orten in den Traumlanden heißen.\n\nWer ohne gültigen Fahrschein einsteigt, trifft Kontrolleure ohne Gesichter.\n\nDie Loge von Ulthar sammelt diese Fahrscheine und zahlt gut. Die Katzen am Bahnhof Zoo wissen mehr, als sie sagen."
+            },
+            "splitter-der-kugel.txt": {
+              "typ": "datei",
+              "verschluesselt": {
+                "salt": "hyDiS+esPNtixXsJ9tKSdA==",
+                "iv": "6PWgnjqAUbEAxMBy",
+                "daten": "WSRemE+nhPDKUw5IYuoJlbkuUaY/NBTBv7j+IPtSxqTfe1JFeIH0FDuJCtLBH6BIzQHUWQ+XF8mKKdHXQzE4g12uL/oaBK+aSrwJ9T+7HEfYyUrVDXFIKOLhiLYqNcSMNzVE9qAcZsss0DbuLYqtLrbaL0SoaL7L5PYFaFdXTxSXf500ClJXqMTSWtLqhrHMGdjxr+N70wDt88bZ855XfQC00ud3pUV7lqqMh+wM//GIoJFS1+gDGyOMEgx4kdTNiOWa1QweIPRQGr+O8ncuQLbnpyC7c6I5g8CbSLbXAcEklUm1o1iGIUMFyi/A5CelgUshkdLwF+H/B0VmQHYLc1Zl9/Db1UFuU4d4ULvuInRkDfXSLC3tKxitDUEpf2064XegSimx3cZib9edTCLJbTfJL6x/kPlxe5yiI+UJGO6OpSc8j02Ed5U2HLY7/F3VxZ7LGlTHszI+J6zfafOsu/CerYMDhZwk0+ZPngJwLyWe54ivxWpGRehLGehILiAHimu5qVC1Ii0NR8DLrCVwLeY="
+              }
+            },
+            "volksempfaenger.txt": {
+              "typ": "datei",
+              "text": "Der Volksempfänger aus Lichtenberg.\n\nEin Volksempfänger aus Bakelit, gefunden bei einer Haushaltsauflösung in Lichtenberg. Kein Stecker. Er spielt trotzdem.\n\nZwischen den Sendern rauscht es, und im Rauschen sind Zahlen: 7, 3, 1. Wer zu lange zuhört, versteht sie irgendwann.\n\nWer sie versteht, sollte sich bei JWD melden. Oder lieber nicht."
+            }
+          }
+        },
+        "kreaturen": {
+          "typ": "ordner",
+          "inhalt": {
+            "die-farbe-vom-tempelhofer-feld.txt": {
+              "typ": "datei",
+              "verschluesselt": {
+                "salt": "n+bssswoi4VVtAbVURUs1g==",
+                "iv": "sAfhHg6u3QsgMKS6",
+                "daten": "Sqmvxaz7ebzWQwzz+CAKw3TOrTRItfqf4Yt1qUwNnjHEIiw1oaLg1xI3lQGoCXv5ve9m0DUt6NkGZu0j/m0fh5nsdCuZgvR/DN91fC06+PhMYlfrIVw6UDVjumVDx94jiXAczOQhMZQKPfvgWQ2MBaDhAJB5EdGauW5ixd3jv5q9V4H8PVrJmg9pKG8F0+q1zVqu269YzMaIC//U+DUpJhyoN5ByxaokdTtqJTyTKXjiZAisevbCb+YTf2hn3RtmcNP3bzna/MlXYUrj12kvZCSmeLJ+HW4XGywV1yi2m8H8LNc9r1CU4tVRtHf+nFkVres2VEGMNPCNU2DfBPb01uFCUiWqM6dy5GIDuefHFu60THNVViVNOcGPV7G5aEBQpBu9QL60CYtN3dZygTzheqeQjwDOtuDKAJHPjLwm3GeqSvdNBIPyvuB5Iu7j0TwTH5RpSTtzosVdqWm/HCSgn7U39d1h2IZh4QXM+RCbF7tjou+eUtb20ZXrFIbjcOApslQ3Pt7wGcU0H4tXNIHMRnSAnS3xyVFiamvOWr09CA=="
+              }
+            },
+            "die-ghule-vom-gesundbrunnen.txt": {
+              "typ": "datei",
+              "text": "Die Ghule vom Gesundbrunnen.\n\nUnter dem Gesundbrunnen liegen alte Bunker. Die Touristenführungen gehen nur durch die halbe Anlage. Die andere Hälfte gehört den Ghulen.\n\nSie sind höflich, sprechen ein altertümliches Deutsch und haben einen Geschmack, über den man nicht redet. Man kann mit ihnen handeln: Wissen gegen Verpflegung. Frag nicht, welche.\n\nDer blinde Fritz soll Stammkunde sein. Oder ehemaliger Mitarbeiter."
+            },
+            "die-vom-mueggelgrund.txt": {
+              "typ": "datei",
+              "text": "Die vom Müggelgrund.\n\nDie Fischer am Müggelsee erzählen von Gestalten, die nachts aus dem Wasser steigen. Schwimmhäute zwischen den Fingern, Augen, die nicht blinzeln.\n\nIn Friedrichshagen gibt es auffällig viele Familien, die nie zum Arzt gehen und bei jedem Wetter baden. Ihre Kinder sehen sich ähnlich. Sehr ähnlich. Ihre Großeltern sieht man nie. Es heißt, die leben jetzt unten.\n\nTipp: Keinen Fisch vom Müggelsee essen. Auch nicht in der Fischbude."
+            }
+          }
+        },
+        "personen": {
+          "typ": "ordner",
+          "inhalt": {
+            "der-prediger-der-u8.txt": {
+              "typ": "datei",
+              "text": "Der Prediger der U8.\n\nSteigt am Hermannplatz ein, predigt bis Gesundbrunnen und steigt an einem Bahnhof aus, der auf keinem BVG-Plan steht. Zitiert aus einem Buch ohne Titel. Seine Lieblingsstelle: „Wenn die Sterne richtig stehen, kommt auch die U8 pünktlich.“\n\nWer ihm zu lange zuhört, murmelt nachts im Schlaf. Immer dieselben Silben.\n\nDie Kataklysmiker halten ihn für einen Propheten. Die BVG für einen Schwarzfahrer."
+            },
+            "professor-weidner.txt": {
+              "typ": "datei",
+              "verschluesselt": {
+                "salt": "wILe8sd+9ajSEPhzPFGWgQ==",
+                "iv": "Yge3yAJfJ8gNYtOW",
+                "daten": "YVraqSrXeT/ZwOdyktrYmZ13gqFkyDe5DLy/wFmMIAqZr8C78OOGljjbUs70bvQIuGW84z0JoROAhagLdGezfRuT5itisbeJUckA+vUFjcptaW8sKWdCfE/kQuC9hoGcNso9IRwuGt6TqbHARv9qM8XluLZCXYEmmN6yM0UOwFV4QAyHd9AG5hDuOAYFfaPDGVZBxJCgBqK1bFnNHQG0y5sNMEL2wMVE6oxDnTpNI0S0jd7JfEM1D/FkfdniwBeI9IMZM5Lw99ttsUv2/zbaBijpkz6unJI3wxVYT4ijvqP3Ys7kEtnQXGbO/PbPlEAkGFsSYrHkgRq/SDBiydngyjyY0pPd9Kxv4N5jYP0GWYCf4hp5+O1rBgafspZ+tCdlj0oVUR3zfIrHpgu/tx0mLQol0wEMNfNHLmSoL2nsD6ubqANFeoFUB63E63AGcelcAM/Oi/zEq8hwmP+CwYjL3i8V4UYMd+p+FOf87u05IE1FF1I1MA81mINnMVnzimcni6OUFmVfhtx5hykNOT1TQg7Qf0q2/z4Kq4xfMYFRAbzPiMlxcP/8GV5c9JDuxqdDw4TNbkRp8HPbw/Z+Q2EUR2ES2DNpq6jupGhcCHeuOcO9SQ0T457E+63BEkj6JHAy3TBckOueM4q48gAykSoGe+pJCSObaaelm9fo9mAf7xtKC6Yv4oWw5ZajVaxDuuIGJykWOY8PbpnTPyc0+DZKD6LvlX0dgUS2GOfiBrrgR0KOR3HS5US+LGpGl1k0itvPzQ=="
+              }
+            },
+            "ute-kranich.txt": {
+              "typ": "datei",
+              "text": "Ute Kranich. Späti an der Sonnenallee, Ecke Pannierstraße.\n\nHat rund um die Uhr offen, und keiner hat sie je schlafen sehen. Nach Mitternacht gibt es bei ihr Dinge, die nicht im Regal stehen: Lotus in Brausetütchen, Goldener Wein in Mate-Flaschen. Bezahlt wird in Gold.\n\nUte merkt sich jedes Gesicht. Wer anschreiben lässt, sollte zahlen, bevor der Kühlschrank anfängt zu summen.\n\nNachtrag: Der Kühlschrank summt nicht. Er betet."
+            }
+          }
+        }
+      }
+    },
+    "feeds": {
+      "typ": "ordner",
+      "inhalt": {
+        "fornax": {
+          "typ": "ordner",
+          "gesperrt": "fornax",
+          "salt": "8vo1jAWYs2iXTOmfCDd8Ng==",
+          "pruefung": {
+            "iv": "a4uZF8NgbINnkstq",
+            "daten": "ZHNFhmz186WSyvQEvadKv+rvcYWx5DeeAnw="
+          },
+          "posts": [
+            {
+              "zeit": "2026-09-30T22:00:00.000Z",
+              "iv": "5waqoNNvVqN06Shy",
+              "daten": "tIAH1yGeYE7oxWZbfR9GgQxHzz2R5tQzxMpdBN6Z30OpfTW/Sce0UE1TIZoe9ObJrB+mHgIJpL8NQMhQuo3S2U1yD2HUCSfkXfuRw0FVCAPnbUHNhGVFXAucVfjFwn3qC++Mu18Czd4Urxfvtoio9Iyt5wJ1K8pqlmxAhPrw6fLncjq43hxrqSt0knhaYdkGmd7byTmkgNwY2vI/d2tDL9UM+hLtjyIca881GvIq5ZtSAdtoEymS0kgbLOj7cIiU2RylHMPRUYRjERsUlrmqP15daAdvw7Zrv9KVy+fTIAMUOmRlyLY="
+            },
+            {
+              "zeit": "2026-12-24T19:00:00.000Z",
+              "iv": "w16k/rj56By9ZZ5A",
+              "daten": "VgNVfBW2WjocnBUD7hqebMw1W1UTpy3ZnOs4S4o8BEB1FSlosISO7z708Neg3PZTm7R6SydO7JDeOmBwTki+5YaIcpepTa8efKLJ/DdMGFphcTJSJMfIRbafE6b95QO5VqlO3TiPpVb/RyFr"
+            }
+          ]
+        },
+        "kataklysmiker": {
+          "typ": "ordner",
+          "gesperrt": "kataklysmiker",
+          "salt": "/c0dBDEOD2xUzXfdRJlpxA==",
+          "pruefung": {
+            "iv": "sKyu8lgYztczMM3F",
+            "daten": "qnQkcgWU7hUDXJg7nBgzS9viNfhk1mjW/bQ="
+          },
+          "posts": [
+            {
+              "zeit": "2026-09-30T22:00:00.000Z",
+              "iv": "48jvn2z3zgfa9VNo",
+              "daten": "Dwr+BzsSh203XGQgSYAD0Na76jCpDaDSsphQrfUDsNYSVbryjfIFS0Lxs/N8LqfxUKKcY0fzifNKOj9OEX6jN7KSwt8RZQkAwVU20YtBdNLCpNY9U4MdG1FPmahPZu42TQk4yPajY1fK0EQ2wUmxuLv+9qo4uAyJ/e1zdxh8SreJN+psLCP/0PoIOhaBfmPF3ae5uMoBhggyv2Tx23YFLbPfcjT2Vl0Sk0Bf0621XzDUlSo9y0rvJYMorILVft6ILErLVuS/Yp8fW/ulHJGawOLJ+r39Ad8DVycUQh4GTKR7NpPunZf83QPdmew="
+            }
+          ]
+        },
+        "ulthar": {
+          "typ": "ordner",
+          "gesperrt": "ulthar",
+          "salt": "0BlPv6nY5dhUOb+7+N95mQ==",
+          "pruefung": {
+            "iv": "KVI+y1+ugJR4eFyf",
+            "daten": "p7NfW0SlcpGtF5TlHiRmjaOrhzkc0sg7vu4="
+          },
+          "posts": [
+            {
+              "zeit": "2026-09-30T22:00:00.000Z",
+              "iv": "lGD9szs1HSZhQXly",
+              "daten": "754/dsmR6c/3cAPiUjuyXCoUoK5DzVV1tzeP4wYS+IX8112TcQlyNYMPTP+Fr6lkjFk9rdiAF2v3yIHRn6bbmXeywpE1nkh/V/co+WlS1K4/YQXXpLIf+E65j+kZBt0Ymd1WH/XjwxZSVhn0/3sL+BP4fekHzfFdRK75tUg5IgywoElZXfEVGJtB4q6Q1+PLnuXUDrK/YqVUL2c64LcA/cQD8mNCzyUadYMXOHFqtUifV1TFzE6oLJIaqxbOlBuTnreva9NodWX4HaZLzLJuRfReTiVpASZHTsZFGtUOIipbyJuTRXyY/yW7LFmIT9Pst1VF9NwxZZxHAKaCBiA1QW1V35LYt9ynWkehaqc2sbEEGTybekJJ0c4="
+            }
+          ]
+        }
+      }
+    },
+    "motd.txt": {
+      "typ": "datei",
+      "text": "Willkommen im SOURCE-Net.\nWas du hier liest, hast du nie gelesen.\nWas du hier schreibst, liest jemand mit."
+    },
+    "notes": {
+      "typ": "ordner",
+      "inhalt": {
+        "funde": {
+          "typ": "ordner",
+          "virtuell": "funde",
+          "inhalt": {}
+        },
+        "sammlungen": {
+          "typ": "ordner",
+          "virtuell": "sammlungen",
+          "inhalt": {}
+        }
+      }
+    }
+  },
+  "scan": {
+    "eintraege": {
+      "79133dc0db1a84d6caffdcce": {
+        "salt": "NRu2aeExc9Y6/PeOzajY1g==",
+        "iv": "n8gHcpqWgsZ+lI6Y",
+        "daten": "i7JQW6VXlN6A/NZpntEfM3GuafaAhR7dJCVzTNt0/Kj9iQe2wcb0+7a6Z1yU9CGL9pk0Tiji6hJmmoGy4O1rzTDT+noeDLI5ZAjNOqxoUPj7xWZZ7lrReO0W+ZpKrM3OCfMgl91kY4m/IkdeWdNVqGX3d3wO6phQKACi4UpEALfFkbdIVNJMv7JvTm8PCdpHK46MYwjZRw3xL/gOAUUIXSCJzHfbzQxiSwqmDqsc9kAIsokLGnOUFJ/g1XgBnEjqPophJA10H0LjCcauEIbiw3w/bnSMS3mOQq//J5T3KK9U6jfxvPgtqkCFWuOgME36INwtaB5i+xGK3K3MOEn79/jZ0F37yDBhbh11LQ3eDMPzaPXeAnZ66akhaeWGR9RcFQj4o7JXTsv+qqKKTVEfRkqfNwminvHHm5T3XKUnnETdpfpIvxUmZhRooKUlz+Gzl4i/rqyRcf6EHjDdg05YxWJxAZQ4eIyOnmD4/aKB+7hlpdzKe4PU0VCG432+809HqBRvnsRy0WO4savUT+Sc/N/btniJL6wmDCo47lktgd+E4cynVA4KwbBaXUfSN2actHoMQMa23WM+wW8S1Kwj2rP5Ajw1S1atnCxzGZiOk218dwddLZL9WTd64G3pFx79+jNcIZVcEcLuxi7uKpcz5fbKCj3RIQVLyY7FH6gLpkykdmY3Z0H/wu32ILTyllx97P/UcdLBToT+l1YBXVPU3eLlFnwdzUVdU3PiHXVuDvYmCfH2hyJy35OAbFUOfUARZwE="
+      },
+      "304e98a35a1dfda617eeaf9b": {
+        "salt": "fX3jHka9R3jKBnnVxYupnQ==",
+        "iv": "Y4eekguKtVA9A5T0",
+        "daten": "dHDFpfDAvQRCtJhpCkYkhkCHdbS7ONyOeIwoh3uG6pDjvD65RnAgNW5veuQcQN+zYq30/wSydkzpABj8PreE3UFdLO5XY+aM2vG6a9tObkxDJIVnQaLeDNPNN5kb17k8TPZYVAopU0PAvjTV/+i795ZkIXKNffLkKb4YTvs+kJafQCY+W5C5v9QdLLkeoOKHaDXusVY9FHAeDOf164UeoyaaOzM3ghOARTsGKXetXMjt9OG0L0evCH5W25sPoT8gFiov5Nsa44bVgHoSjjNOYDiaY3/hf+Nqt8cNA207GZODeujiILzgSHeqK5MEIICQo6uRrkQy2Ub2w9k="
+      },
+      "27ddd6db567c07e7f4a9e37f": {
+        "salt": "waCWAvAvHbaN1OyK7a2TNg==",
+        "iv": "ZDH4g11Tej6wsF+A",
+        "daten": "JKJNUdtbpeTP3spxealRdc2I2ifgp8nt+gtZfPrqYXF7T5swWvDD4E8k6muIIhVIImUTo9FpS0g23rjODmYCka9Gh/9qJ2iB8DyMzTiVEOP5lXR3hsyhnbY/9BlHb0LjxlgMOoQ/tCiDDBDOs0EnnlPouYaf0zRXxSgPkLsRjQGyIgxmh+JqsDNm6r+MnuxWjAfs3cBmvcir4Qky8flKjVoyaAA1b5eXxxP7ixpmHtwwu08bxDXhideDI79EiX2e9fhrKJkkGkYxGThcCnLeWA=="
+      },
+      "9557ae572cbf6db7e75917e7": {
+        "salt": "YfJEnKEN7iyJkeXHwqvWXg==",
+        "iv": "yTqO3T/upvfS+IoA",
+        "daten": "iHKrg+1tdrsGfkwn5CXl1Nldk5Tzd+PUWLgXs6j1u0MO3ABojzs/4jD4Ltwwy4dIpzGxh98iAQst6hao6IFvtMKEQv9jEWDwhuTz6qzksb7TfmxIvaoPPxa4C8RzeJ7qSn44pGICEQMmPNazhzNAbO+ut9kikavNr4Ib1ewpV741U4hbm0DFUXk9J9JKR1cUrGogQuSIdGP2Q0cJTHrel6WdHpVjw5DY4EMrMBgR2U5m/2MD35xE"
+      }
+    },
+    "sammlungen": {
+      "ulthar-codex": {
+        "anzahl": 3,
+        "salt": "WYudCQLp/PqF0lkBIL/+nA==",
+        "iv": "Zfu5hPdB3/mime35",
+        "daten": "KrkfD9tIUliojjwNVax3rA+CuCXvkllCq64ne8/UD4vrweRGx5QAcOoUf2bEjKnrByJtll8CPHMYpR07bhd6VMA+g8jxKMO5sAD/8lc4iAGAisX/3hhrpWylka9jzUZhXAKQxYSgG+Lm4WfSD2LBwgcKu2wKiPiLzmVqxo8I0UcbL6CfsFvAfnuN5TA2VCLMPkVPeI7WKl2L7NLt/P1Wbxl/ON3r01zuFcUGfZL3FefOlIgIo1tuVgZjTfwvkOpiQlqNHxg595CcPMMD02rp2/PnEFIoYDeaGyrFcr+Bp479JpG4xESukHN9m8xHwU8+sZP5B+J2zsWjSMLVJgmXlZz5Y1epT34921R8dg9CsHMa/ajVG8L2SFV5qkghiVD5sS8vWkKg9CvAGiW7pjMJ7LPWAqQvWh8TZXGTdj7/Dr264BXn+FTWG+27bHyjcLMyQpz2TL/Ahz1TqF9iN9qGj8NtcePbuS+ug20="
+      }
+    }
+  }
+}

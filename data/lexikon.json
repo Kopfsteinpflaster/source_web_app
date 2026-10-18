@@ -1,0 +1,120 @@
+{
+  "kategorien": [
+    { "id": "begriffe", "titel": "begriffe" },
+    { "id": "personen", "titel": "personen" }
+  ],
+  "eintraege": [
+    {
+      "id": "traeume",
+      "kategorie": "begriffe",
+      "titel": "Die Träume des wahnsinnigen Gottes",
+      "text": "Die Realität ist hinüber. Wahnsinn sickert in unsere Welt. Manche Dinge stimmen nicht mehr. Ein schlafender Gott, dessen Gedanken fremdartig sind, hat an der Stadt Gefallen gefunden. Seine Träume verzerren alles, was sie berühren. Die Wesen, welche die Träume bemerkt haben, versuchen, bei Verstand zu bleiben. Manche probieren, die Träume für ihre eigenen Zwecke zu verwenden. Die Zukunft wird zeigen, ob sie mutig oder einfach nur dumm sind. Jetzt kann es ihnen Vorteile verschaffen, auch wenn der Preis manchmal hoch ist.",
+      "verweise": ["kataklysmus", "seltsame-wissenschaften", "maskierter-mann"]
+    },
+    {
+      "id": "berlin-paradox",
+      "kategorie": "begriffe",
+      "titel": "Das Berlin-Paradox",
+      "text": "Je seltsamer etwas ist, desto mehr wird es von den Berlinern ignoriert. Du könntest mit einem brennenden Dinosaurierkostüm durch die U8 rennen, und niemand würde es interessieren. Genau deswegen kann eine verborgene Welt in Berlin existieren. Sie wird einfach ignoriert und als banaler Wahnsinn der Stadt abgetan.",
+      "verweise": ["traeume"]
+    },
+    {
+      "id": "verfluchtes-gold",
+      "kategorie": "begriffe",
+      "titel": "Verfluchtes Gold",
+      "text": "Berliner Okkultisten zahlen mit verfluchtem Gold. Für Personen, die vom Mythos berührt worden sind, scheinen die Münzen und Edelsteine, die sie zum Zahlen verwenden, harmlos zu sein. Wenn man diese verfluchten Reichtümer an Unwissende weitergibt, verändern sich die Empfänger. Zuerst fängt es mit großer Gier an; es ist unglaublich einfach, Unwissende mit diesem Gold zu bestechen. Manchmal treten aber schon nach kurzer Zeit Veränderungen in den bestochenen Personen auf. Zuerst sind diese Veränderungen innerlich und ändern das Verhalten der Person. Was danach geschieht, ist nicht vorhersehbar.",
+      "verweise": ["blinder-fritz"]
+    },
+    {
+      "id": "traumlande",
+      "kategorie": "begriffe",
+      "titel": "Die Traumlande",
+      "text": "Neben der Realität, in der wir uns physisch befinden, existiert noch eine weitere Realität, in der sich unser Verstand befindet. Manchmal können wir diese Lande in unseren Träumen betreten. Es gibt aber auch Möglichkeiten, diese Daseinsebenen mit Hilfe von Rauschmitteln wie Lotus und goldenem Wein zu betreten. Die Traumlande sind seltsam. Sie verbinden den Verstand vieler Wesen miteinander. Manche behaupten, dass man sie benutzen kann, um auf andere Planeten, in andere Zeiten oder sogar andere Realitäten zu reisen.",
+      "verweise": ["lotus", "goldener-wein", "geheimgesellschaften"]
+    },
+    {
+      "id": "magie",
+      "kategorie": "begriffe",
+      "titel": "Magie",
+      "text": "Magie existiert. Wenn du sie benutzt, wird sie dich verzehren. Magie kann sowohl deinem Körper als auch deinem Geist Unaussprechliches antun. Der Gebrauch von Magie umfasst auch das Verwenden von mystischen Gegenständen und alchemischen Substanzen. Jeder ist dazu in der Lage, Magie zu verwenden; der Anwender muss nur erlernen, wie es funktioniert. Das Anwenden von Magie ist jedoch ein dunkles und gefährliches Unterfangen. Viele Magier verlieren sich in ihrer Sucht nach Macht und Wissen, bis ihr Körper entstellt und ihr Geist zerrissen ist.",
+      "verweise": ["seltsame-wissenschaften"]
+    },
+    {
+      "id": "seltsame-wissenschaften",
+      "kategorie": "begriffe",
+      "titel": "Seltsame Wissenschaften",
+      "text": "Manchen Forschern ist es gelungen, Okkultes mit Technologie zu verbinden. Manche technologischen Errungenschaften der letzten Zeit sind so seltsam, dass man sie sich eigentlich nur noch durch den Einfluss des wahnsinnigen Gottes erklären kann. Es gibt Gerüchte über außerirdische Technologie, die weit über unseren Wissensstand hinausgeht. Diese Technologien sind auch nicht ungefährlicher als Magie. Das SOURCE-Net ist ein Bereich des Darknets, den die Okkultisten benutzen, um Informationen auszutauschen.",
+      "verweise": ["traeume", "magie", "jwd"]
+    },
+    {
+      "id": "kataklysmus",
+      "kategorie": "begriffe",
+      "titel": "Der 3. Kataklysmus",
+      "text": "Wir haben Anzeichen dafür gefunden, dass die Welt bereits zweimal untergegangen ist. Manche halten die Träume des wahnsinnigen Gottes für ein Omen, dass uns ein weiterer Kataklysmus bevorsteht. Wir haben Überreste der vergangenen Kataklysmen gefunden. So entdeckten wir den Goldenen Wein und den Lotus. In alten Schriften ist von fremdartigen Kulturen, Zivilisationen und Ländern wie Atlantis und Lemuria die Rede.",
+      "verweise": ["traeume", "goldener-wein", "lotus"]
+    },
+    {
+      "id": "lotus",
+      "kategorie": "begriffe",
+      "titel": "Lotus",
+      "text": "Eine Pflanze aus einem vergangenen Zeitalter. Lotus kommt in verschiedenen Farben vor. Er ist ein starkes Rauschmittel und kann je nach Farbe und Verarbeitung eine andere Wirkung haben. Er kann starke Halluzinationen verursachen, Paralyse und Raserei hervorrufen oder Menschen gefügig machen. Es ist auch Lotus, das als Droge benutzt wird, um die Traumlande zu betreten.",
+      "verweise": ["traumlande", "kataklysmus", "blinder-fritz"]
+    },
+    {
+      "id": "goldener-wein",
+      "kategorie": "begriffe",
+      "titel": "Goldener Wein",
+      "text": "Goldener Wein wurde in den Ruinen eines verlassenen Zeitalters entdeckt. Er ist ein starkes Rauschmittel, das einen wohligen Effekt hervorruft. Das Wunderliche an diesem Wein ist, dass er schwerste Verletzungen heilen kann. Allerdings macht er auch schwer abhängig. Die namenlose Stadt, in der man ihn entdeckt hat, wurde bereits vor dem zweiten Kataklysmus zerstört, da die gesamte Stadt von diesem Rauschmittel abhängig war. Soweit wir wissen, wurden die Bewohner einer nach dem anderen von einem lebenden Schatten verschlungen.",
+      "verweise": ["kataklysmus", "traumlande", "blinder-fritz"]
+    },
+    {
+      "id": "alte-goetzen",
+      "kategorie": "begriffe",
+      "titel": "Alte Götzen",
+      "text": "Die Verehrung alter Gottheiten ist wieder aufgekommen. Es gibt eine Vielzahl von Kulten, die alte Götter und Dämonen verehren. Nyarlathotep, Pazuzu, Shub-Niggurath, Lamaschtu, Ishtar, Cthulhu, Ahriman, Dagon und Enki, um nur einige zu nennen. Manche Kultisten behaupten, dass sie direkt mit diesen Wesen kommunizieren können. Die Verehrung findet an geheimen Schreinen und in versteckten Tempeln statt. Während dieser Zeremonien werden häufig grauenhafte Rituale und Praktiken vollzogen.",
+      "verweise": ["geheimgesellschaften"]
+    },
+    {
+      "id": "geheimgesellschaften",
+      "kategorie": "begriffe",
+      "titel": "Geheimgesellschaften",
+      "text": "Der Esoterische Orden ist von Geheimgesellschaften durchzogen. Um einige Beispiele zu nennen: Die Kataklysmiker, welche die Apokalypse herbeisehnen. Die Loge von Ulthar erforscht die Traumlande, und die Ahrimiten suchen nach Wegen, die Unsterblichkeit zu erlangen. Die Fornax treiben die okkulten Wissenschaften voran, um die Geheimnisse des Universums zu entschlüsseln. Es gibt eine Diebesgilde, die angeblich von einem sprechenden Schädel mit edelsteinernen Augen angeführt wird.",
+      "verweise": ["esoterischer-orden", "traumlande", "seltsame-wissenschaften"]
+    },
+    {
+      "id": "esoterischer-orden",
+      "kategorie": "begriffe",
+      "titel": "Der Esoterische Orden",
+      "text": "Der „Esoterische Orden“ ist eine Art geheime Gesellschaft der Wissenden; allerdings ist diese Gesellschaft nicht geeint, sondern eher zerstritten. Es ist eine lose Verbindung von Individuen, die sich mit dem Okkulten beschäftigen. Tatsächlich könnte man den Esoterischen Orden als Ansammlung von Bekanntschaften sehen, die manchmal gut und manchmal … eher katastrophal gelaufen sind.",
+      "verweise": ["geheimgesellschaften", "unheil-bar"]
+    },
+    {
+      "id": "unheil-bar",
+      "kategorie": "begriffe",
+      "titel": "Die Unheil-Bar",
+      "text": "Diese Bar ist ein Treffpunkt für die Berliner Okkultisten. Keiner weiß genau, wo sich die Unheil-Bar befindet. Manchmal fühlt man eine Art Ziehen an seinem Verstand und hat das Bedürfnis aufzubrechen. Wenn man diesem Bedürfnis nachgeht, landet man manchmal in der Unheil-Bar. Wenn man bewusst nach der Bar sucht, ist die Bar unauffindbar. Man vergisst den Weg und verläuft sich in der Stadt.",
+      "verweise": ["esoterischer-orden"]
+    },
+    {
+      "id": "maskierter-mann",
+      "kategorie": "personen",
+      "titel": "Der maskierte Mann",
+      "text": "Der maskierte Mann besucht Menschen in ihren Träumen, um ihnen Arbeit anzubieten. Er ist der HR-Manager einer unbekannten Firma. Diese Firma beschäftigt sich vermutlich mit dem Wahnsinnigen Gott. Bisher ist es aber noch niemandem gelungen, Genaueres herauszufinden.",
+      "verweise": ["traeume"]
+    },
+    {
+      "id": "blinder-fritz",
+      "kategorie": "personen",
+      "titel": "Der blinde Fritz",
+      "text": "Keiner weiß genau, wer der blinde Fritz ist, aber alle sind sich sicher, dass er inzwischen kein Mensch mehr ist. Angeblich hat er einen regen Appetit auf Menschenfleisch. Die Berliner Okkultisten betreiben Handel mit ihm; er akzeptiert Goldmünzen als Bezahlung für Goldenen Wein und Lotus. Manchmal hat er auch seltsamere Dinge im Angebot.",
+      "verweise": ["verfluchtes-gold", "goldener-wein", "lotus"]
+    },
+    {
+      "id": "jwd",
+      "kategorie": "personen",
+      "titel": "JWD",
+      "text": "Keiner weiß, wer JWD ist; es wird aber vermutet, dass JWD kein Mensch ist, da es Signale aus dem Fornax-Cluster sendet.",
+      "verweise": ["seltsame-wissenschaften", "geheimgesellschaften"]
+    }
+  ]
+}
