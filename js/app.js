@@ -35,6 +35,8 @@ function finden(pfad) {
   if (routen[pfad]) return [routen[pfad], {}];
   const lex = pfad.match(/^\/lexikon\/([\w-]+)$/);
   if (lex) return [ansichten.lexikon, { id: lex[1] }];
+  const meldung = pfad.match(/^\/news\/([\w-]+)$/);
+  if (meldung) return [ansichten.news, { id: meldung[1] }];
   // QR-Codes zeigen auf #/scan/<code>, eingelesen wird im Terminal
   const scan = pfad.match(/^\/scan\/([\w-]+)$/);
   if (scan) return [ansichten.terminal, { scan: scan[1] }];

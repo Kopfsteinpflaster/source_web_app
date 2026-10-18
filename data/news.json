@@ -1,0 +1,14 @@
+{
+  "artikel": [
+    {
+      "id": "2026-10-18-weisser-see",
+      "titel": "DRITTE LEICHE AM WEISSENSEE ENTDECKT",
+      "quelle": "Berliner Tageblatt",
+      "stil": "zeitung",
+      "zeit": "2026-10-18T10:00:00.000Z",
+      "bild": "data/news/weisser-see.jpg",
+      "bildtext": "Mysteriöse Todesfälle geben Ermittlern Rätsel auf",
+      "text": "Am Weißensee ist erneut eine Leiche gefunden worden. Es ist bereits das dritte Opfer, bei dem Salzwasser in der Lunge festgestellt wurde – obwohl der See ein Süßwassergewässer ist.\n\nWie das Salzwasser in die Atemwege der Toten gelangte, ist bislang völlig unklar. Auch ein Zusammenhang zwischen den drei Fällen wirft Fragen auf.\n\nDie Polizei sieht nach eigenen Angaben derzeit keine Hinweise auf einen Serientäter. Die Ermittlungen zu den Todesumständen dauern an.\n\nBei Anwohnern wächst unterdessen die Verunsicherung. Was geschieht am Weißensee – und woher kommt das Salzwasser?"
+    }
+  ]
+}

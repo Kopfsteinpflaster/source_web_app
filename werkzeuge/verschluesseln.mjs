@@ -1,5 +1,6 @@
 // Spielleitungs-Werkzeug: liest die Klartext-Inhalte aus spielleitung/inhalt/ und schreibt data/terminal.json.
 // Dazu einen druckbaren QR-Bogen: spielleitung/qr-codes.html
+// Die Artikel aus spielleitung/news/ landen (unverschlüsselt) in data/news.json, ihre Bilder in data/news/.
 // Aufruf im Projektordner:  node werkzeuge/verschluesseln.mjs
 // Anleitung: spielleitung/ANLEITUNG.md
 //
@@ -7,7 +8,7 @@
 // Gegenstück im Browser: js/krypto.js. Beide müssen dieselben Parameter benutzen.
 
 import { webcrypto as krypto } from "node:crypto";
-import { readdir, readFile, writeFile, stat } from "node:fs/promises";
+import { readdir, readFile, writeFile, stat, mkdir, copyFile, rm } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -17,6 +18,9 @@ const QUELLE = path.join(SPIELLEITUNG, "inhalt");
 const ZIEL = path.join(PROJEKT, "data", "terminal.json");
 const QR_BOGEN = path.join(SPIELLEITUNG, "qr-codes.html");
 const EINSTELLUNGEN = path.join(SPIELLEITUNG, "einstellungen.txt");
+const NEWS_QUELLE = path.join(SPIELLEITUNG, "news");
+const NEWS_ZIEL = path.join(PROJEKT, "data", "news.json");
+const NEWS_BILDER = path.join(PROJEKT, "data", "news");
 const ITERATIONEN = 150000;
 
 // Hier liegen Fundstücke und Sammelsets; ihr Inhalt erscheint erst nach dem Scannen
@@ -112,7 +116,7 @@ const gibtEs = (pfad) => stat(pfad).then(() => true, () => false);
 
 // ---------- Baum bauen ----------
 
-const bericht = { offen: [], gesperrt: [], feeds: [], codesNeu: 0 };
+const bericht = { offen: [], gesperrt: [], feeds: [], codesNeu: 0, newsSpaeter: [], grosseBilder: [] };
 const scan = { eintraege: {}, sammlungen: {} };
 const qr = []; // für den QR-Bogen: { name, code, sammlung, teil }
 const vergebeneCodes = new Set();
@@ -250,6 +254,68 @@ async function sammlungenBauen(ordner) {
   return { typ: "ordner", virtuell: "sammlungen", inhalt: {} };
 }
 
+// ---------- News ----------
+
+const STILE = ["zeitung", "netz", "traum", "anzeige"];
+const BILD_ENDUNGEN = [".jpg", ".jpeg", ".png", ".webp"];
+const BILD_GROSS = 300 * 1024;
+
+const newsRelativ = (datei) => path.relative(SPIELLEITUNG, datei).split(path.sep).join("/");
+
+// Jede .txt in spielleitung/news/ ist ein Artikel, Bilder liegen daneben
+async function newsBauen() {
+  const artikel = [];
+  const bilder = new Map(); // Name in data/news/ → Quelldatei
+  for (const name of await eintraege(NEWS_QUELLE)) {
+    const voll = path.join(NEWS_QUELLE, name);
+    if (name.startsWith("_") || (await istOrdner(voll)) || path.extname(name).toLowerCase() !== ".txt") continue;
+    const wo = newsRelativ(voll);
+    if (/\s/.test(name)) throw new Fehler(`${wo}: Bitte keine Leerzeichen im Namen, nimm Bindestriche.`);
+    const { kopf, text } = zerlegen(await readFile(voll, "utf8"));
+    if (!kopf.titel) throw new Fehler(`${wo}: Es fehlt die Zeile "titel: ..."`);
+    if (!kopf.zeit) throw new Fehler(`${wo}: Es fehlt die Zeile "zeit: 2026-10-24 19:00"`);
+    const zeit = zeitLesen(kopf.zeit, voll);
+    const stil = (kopf.stil || "zeitung").toLowerCase();
+    if (!STILE.includes(stil)) throw new Fehler(`${wo}: stil "${kopf.stil}" gibt es nicht. Möglich: ${STILE.join(", ")}`);
+
+    let bild;
+    if (kopf.bild) {
+      const quelle = path.join(NEWS_QUELLE, kopf.bild);
+      if (/[\s/\\]/.test(kopf.bild)) throw new Fehler(`${wo}: Bildnamen bitte ohne Leerzeichen und Ordner, nimm Bindestriche.`);
+      if (!BILD_ENDUNGEN.includes(path.extname(kopf.bild).toLowerCase())) {
+        throw new Fehler(`${wo}: Bild "${kopf.bild}" bitte als ${BILD_ENDUNGEN.join(", ")}`);
+      }
+      if (!(await gibtEs(quelle))) throw new Fehler(`${wo}: Das Bild "${kopf.bild}" liegt nicht in spielleitung/news/.`);
+      const groesse = (await stat(quelle)).size;
+      if (groesse > BILD_GROSS && !bilder.has(kopf.bild)) bericht.grosseBilder.push(`${kopf.bild} (${Math.round(groesse / 1024)} KB)`);
+      bilder.set(kopf.bild, quelle);
+      bild = `data/news/${kopf.bild}`;
+    }
+
+    if (zeit > new Date()) bericht.newsSpaeter.push(`${name} ab ${zeit.toLocaleString("de-DE")}`);
+    artikel.push({
+      id: path.basename(name, path.extname(name)),
+      titel: kopf.titel,
+      ...(kopf.quelle && { quelle: kopf.quelle }),
+      stil,
+      zeit: zeit.toISOString(),
+      ...(bild && { bild }),
+      ...(kopf.bildtext && { bildtext: kopf.bildtext }),
+      text,
+    });
+  }
+  artikel.sort((a, b) => b.zeit.localeCompare(a.zeit));
+  return { artikel, bilder };
+}
+
+// data/news/ gehört dem Werkzeug: Was kein Artikel mehr braucht, fliegt raus
+async function newsSchreiben({ artikel, bilder }) {
+  await writeFile(NEWS_ZIEL, JSON.stringify({ artikel }, null, 2) + "\n", "utf8");
+  await mkdir(NEWS_BILDER, { recursive: true });
+  for (const alt of await readdir(NEWS_BILDER)) if (!bilder.has(alt)) await rm(path.join(NEWS_BILDER, alt));
+  for (const [name, quelle] of bilder) await copyFile(quelle, path.join(NEWS_BILDER, name));
+}
+
 // ---------- QR-Bogen ----------
 
 const html = (t) => String(t).replace(/[&<>"]/g, (z) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[z]);
@@ -343,11 +409,14 @@ try {
   const einstellungen = (await gibtEs(EINSTELLUNGEN)) ? kopfzeilen(await readFile(EINSTELLUNGEN, "utf8")) : {};
   const adresse = einstellungen.adresse || "http://localhost/source_web_app/";
 
+  // Erst alles bauen, dann schreiben: Bei einem Fehler bleibt alles, wie es war
   const baum = { kdf: { iterationen: ITERATIONEN }, ...(await ordnerBauen(QUELLE)), scan };
+  const news = (await gibtEs(NEWS_QUELLE)) ? await newsBauen() : null;
   await writeFile(ZIEL, JSON.stringify(baum, null, 2) + "\n", "utf8");
   await writeFile(QR_BOGEN, qrBogen(adresse), "utf8");
+  if (news) await newsSchreiben(news);
 
-  console.log(`\nFertig: data/terminal.json und spielleitung/qr-codes.html geschrieben.\n`);
+  console.log(`\nFertig: data/terminal.json${news ? ", data/news.json" : ""} und spielleitung/qr-codes.html geschrieben.\n`);
   console.log(`Offene Dateien:      ${bericht.offen.length}`);
   console.log(`Gesperrte Dateien:   ${bericht.gesperrt.length}`);
   for (const [datei, pw] of bericht.gesperrt) console.log(`  ~/${datei}   passwort: ${pw}`);
@@ -358,9 +427,16 @@ try {
   }
   console.log(`QR-Codes:            ${qr.length}${bericht.codesNeu ? `  (${bericht.codesNeu} neu vergeben)` : ""}`);
   for (const q of qr) console.log(`  scan ${q.code}   ${q.sammlung ? `${q.sammlung} ${q.teil}: ` : ""}${q.name}`);
+  if (news) {
+    console.log(`News-Artikel:        ${news.artikel.length}  (${news.bilder.size} Bild(er))`);
+    for (const s of bericht.newsSpaeter) console.log(`      noch unsichtbar: ${s}`);
+    for (const b of bericht.grosseBilder) console.log(`  Achtung, großes Bild: ${b}. Lädt unterwegs langsam, besser unter 300 KB.`);
+  } else {
+    console.log("News:                keine (Ordner spielleitung/news/ fehlt)");
+  }
   console.log("");
 } catch (e) {
   console.error(`\nFehler: ${e instanceof Fehler ? e.message : e.stack}\n`);
-  console.error("data/terminal.json wurde nicht verändert.\n");
+  console.error("Es wurde nichts verändert.\n");
   process.exit(1);
 }

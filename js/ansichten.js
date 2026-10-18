@@ -2,10 +2,12 @@
 
 import * as bilder from "./bilder.js";
 import { maskieren, unterseite, ausgabe } from "./hilfen.js";
+import { ungelesen } from "./news.js";
 
 export { lexikon } from "./lexikon.js";
 export { knall } from "./knall.js";
 export { terminal } from "./terminal.js";
+export { news } from "./news.js";
 
 const LOGO = String.raw`   _____ ____  __  ______  ____________
   / ___// __ \/ / / / __ \/ ____/ ____/
@@ -48,8 +50,12 @@ export const start = ({ booten }) => `
     </a>
   </div>`;
 
-export const news = () =>
-  unterseite("news", ausgabe("tail -f meldungen.log", "keine meldungen", "Neue Meldungen erscheinen hier, sobald es etwas gibt."));
+// Neue Meldungen an der News-Kachel anzeigen, sobald news.json da ist
+start.binden = async (wurzel) => {
+  const anzahl = await ungelesen();
+  const ziel = wurzel.querySelector('.kachel[href="#/news"] .enter');
+  if (anzahl && ziel) ziel.insertAdjacentHTML("beforebegin", `<span class="neu-marke">[ ${anzahl} neu ]</span>`);
+};
 
 // Münzwurf: verfluchte Goldmünze. Glück eskaliert zum Positiven, Pech zum Negativen.
 export const muenzwurf = () =>
@@ -215,7 +221,7 @@ export const impressum = () =>
         um den technischen Betrieb sicheren Standards entsprechend zu gewährleisten.</p>
       <p>Damit die App offline funktioniert, speichert dein Browser ihre Dateien auf deinem Gerät zwischen. Außerdem merkt
         er sich für die laufende Sitzung, dass der Startbildschirm schon einmal geladen wurde, und speichert dauerhaft
-        den Stand deines Knall-Zählers, die Passwörter und Funde, die du im Terminal freigeschaltet hast, und deine Notizen. Diese Daten bleiben auf deinem Gerät und werden nicht an uns übertragen. Du kannst sie jederzeit über die Browser-Einstellungen löschen.</p>
+        den Stand deines Knall-Zählers, die Passwörter und Funde, die du im Terminal freigeschaltet hast, deine Notizen und welche Meldungen du schon gelesen hast. Diese Daten bleiben auf deinem Gerät und werden nicht an uns übertragen. Du kannst sie jederzeit über die Browser-Einstellungen löschen.</p>
 
       <h2>Schriftart</h2>
       <p>Die App verwendet die Schriftart IBM Plex Mono, lizenziert unter der SIL Open Font License 1.1.

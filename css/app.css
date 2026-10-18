@@ -975,6 +975,165 @@ a {
   border-color: rgba(224, 154, 62, 0.45);
 }
 
+/* ---------- News ---------- */
+
+/* Hinweis auf der Startkachel */
+.kachel .neu-marke {
+  display: block;
+  margin-top: 8px;
+  font-size: 11px;
+  text-align: right;
+  color: var(--natrium);
+}
+
+.kachel .neu-marke + .enter {
+  margin-top: 2px;
+}
+
+.meldungen {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.meldung {
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 10px;
+  text-decoration: none;
+  background: var(--stein);
+  border: 1px solid var(--fuge);
+}
+
+.meldung:not(:has(img)) {
+  grid-template-columns: 1fr;
+}
+
+.meldung:hover {
+  border-color: rgba(224, 154, 62, 0.45);
+}
+
+.meldung.neu {
+  border-left: 3px solid var(--natrium);
+}
+
+.meldung img {
+  width: 88px;
+  height: 88px;
+  object-fit: cover;
+  display: block;
+  border: 1px solid var(--fuge);
+}
+
+.meldung .kopf,
+.artikel .kopf {
+  margin: 0 0 4px;
+  font-size: 11px;
+  color: var(--gedimmt);
+}
+
+.meldung h2 {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.35;
+  color: var(--knochen);
+}
+
+.meldung .marke {
+  display: block;
+  margin-top: 6px;
+  font-size: 11px;
+  color: var(--natrium);
+}
+
+.artikel {
+  margin-bottom: 28px;
+}
+
+.artikel h2 {
+  margin: 0 0 16px;
+  font-size: 21px;
+  line-height: 1.25;
+  color: var(--knochen);
+}
+
+.artikel figure {
+  margin: 0 0 18px;
+}
+
+.artikel img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--fuge);
+}
+
+.artikel figcaption {
+  margin-top: 6px;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--gedimmt);
+}
+
+.artikel .text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--knochen);
+}
+
+.artikel .text p {
+  margin: 0 0 1em;
+}
+
+/* Stile je Quelle */
+
+.stil-zeitung h2,
+.stil-zeitung .text {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.artikel.stil-zeitung .text {
+  font-size: 16px;
+}
+
+.artikel.stil-zeitung h2 {
+  font-size: 25px;
+}
+
+.stil-netz .kopf {
+  color: var(--gruenspan);
+}
+
+.artikel.stil-netz .text p::before {
+  content: "> ";
+  color: var(--gruenspan);
+}
+
+.stil-traum h2,
+.stil-traum .text {
+  font-style: italic;
+  color: rgba(221, 213, 196, 0.8);
+}
+
+.artikel.stil-traum .text {
+  padding-left: 14px;
+  border-left: 1px dashed rgba(111, 156, 146, 0.5);
+}
+
+.stil-anzeige .kopf {
+  color: var(--natrium);
+}
+
+.artikel.stil-anzeige {
+  padding: 14px;
+  border: 1px dashed rgba(224, 154, 62, 0.5);
+}
+
 /* ---------- Lexikon ---------- */
 
 .grep {

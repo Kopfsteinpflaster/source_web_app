@@ -21,9 +21,9 @@ export function schreiben(schluessel, wert) {
 export const maskieren = (text) =>
   String(text).replace(/[&<>"']/g, (z) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[z]);
 
-export const unterseite = (ordner, inhalt) => `
+export const unterseite = (ordner, inhalt, zurueck = "#/") => `
   <div class="leiste">
-    <a class="zurueck" href="#/" aria-label="Zurück zur Startseite">[ cd .. ]</a>
+    <a class="zurueck" href="${zurueck}" aria-label="${zurueck === "#/" ? "Zurück zur Startseite" : "Zurück"}">[ cd .. ]</a>
     <h1>source@net:~/<b>${ordner}</b>$ <span class="cursor" aria-hidden="true">▌</span></h1>
   </div>
   ${inhalt}`;

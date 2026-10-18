@@ -3,7 +3,7 @@
 // Inhalte unter data/: zuerst aus dem Netz, damit neue Meldungen sofort ankommen.
 // Bei Änderungen an der App-Hülle VERSION erhöhen.
 
-const VERSION = "source-v15";
+const VERSION = "source-v16";
 
 const HUELLE = [
   "./",
@@ -16,10 +16,12 @@ const HUELLE = [
   "js/hilfen.js",
   "js/knall.js",
   "js/terminal.js",
+  "js/news.js",
   "js/krypto.js",
   "js/lexikon.js",
   "data/lexikon.json",
   "data/terminal.json",
+  "data/news.json",
   "fonts/plex-mono-400.woff2",
   "fonts/plex-mono-600.woff2",
   "icons/icon.svg",
